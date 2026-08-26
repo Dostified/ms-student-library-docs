@@ -1,11 +1,247 @@
-<html>
-<body style="font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px;">
-    <h1>Privacy Policy for MS Student Library</h1>
-    <p>Last Updated: August 26, 2026</p>
-    <p>We respect your privacy. MS Student Library uses Google Drive API solely to backup and sync your personal study documents.</p>
-    <h3>Data Collection</h3>
-    <p>The app only accesses files that it creates or that you specifically select. We do not see your private photos or other Drive data.</p>
-    <h3>Data Usage</h3>
-    <p>We do not store your data on our own servers. All backups are stored securely in your own Google account.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Student Library - Official App Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6200EE;
+            --bg-color: #F8F9FA;
+            --text-main: #1C1B1F;
+            --text-sec: #49454F;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --modal-overlay: rgba(0,0,0,0.5);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 90px; /* Space for the sticky footer */
+            scroll-behavior: smooth;
+        }
+
+        /* Top Navigation */
+        nav {
+            background: #ffffff;
+            padding: 15px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary); }
+        .brand img { width: 42px; height: 42px; border-radius: 10px; }
+        .brand h2 { margin: 0; font-size: 20px; font-weight: 800; }
+
+        .nav-links a { text-decoration: none; color: var(--text-sec); margin-left: 25px; font-weight: 600; font-size: 14px; transition: 0.2s; cursor: pointer; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 10% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #EADDFF 0%, #ffffff 100%);
+        }
+
+        .hero h1 { font-size: 3.5rem; margin: 0 0 20px; color: #21005D; font-weight: 800; letter-spacing: -1px; }
+        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 40px; color: var(--text-sec); font-weight: 500; }
+
+        .btn-download {
+            background: var(--primary);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(98, 0, 238, 0.3);
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(98, 0, 238, 0.4); }
+
+        /* General Section Styling */
+        .section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 0; }
+        .section-title p { color: var(--text-sec); font-size: 1.1rem; margin-top: 10px; }
+
+        /* Features */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 40px; border-radius: 28px; box-shadow: var(--card-shadow); border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card h3 { color: var(--primary); margin-top: 0; font-weight: 800; }
+
+        /* PROFESSIONAL PRIVACY POLICY SECTION */
+        .legal-section {
+            background: #fff;
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: var(--card-shadow);
+            border: 1.5px solid #EADDFF;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .legal-header { text-align: center; margin-bottom: 40px; }
+        .legal-header h2 { font-size: 2.2rem; font-weight: 800; color: #21005D; margin-bottom: 10px; }
+        .legal-header span { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .legal-item { margin-bottom: 30px; }
+        .legal-item h3 { font-size: 1.3rem; color: var(--primary); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .legal-item p { font-size: 1.05rem; color: var(--text-sec); margin: 0; }
+
+        /* EXACT WEB SERVER STICKY FOOTER */
+        .sticky-footer { 
+            position: fixed; bottom: 0; left: 0; right: 0; height: 70px; 
+            background: var(--primary); backdrop-filter: blur(10px); 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            display: flex; align-items: center; justify-content: center; 
+            z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); 
+            cursor: pointer; color: white; transition: 0.3s;
+        }
+        .sticky-footer:active { transform: scale(0.98); }
+        .footer-brand { display: flex; align-items: center; gap: 12px; }
+        .footer-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); }
+        .footer-text { font-size: 15px; font-weight: 800; letter-spacing: 0.5px; }
+
+        /* EXACT WEB SERVER MODAL */
+        .modal { 
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
+            width: 100%; height: 100%; background: var(--modal-overlay); 
+            backdrop-filter: blur(8px); justify-content: center; align-items: center;
+        }
+        .modal-content { 
+            background: white; padding: 32px; border: 1px solid #eee; 
+            width: 90%; max-width: 450px; border-radius: 24px; color: var(--text-main); 
+            text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
+        }
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+        .social-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--text-main); font-size: 11px; font-weight: 600; transition: 0.3s; }
+        .social-item:hover { transform: translateY(-5px); color: var(--primary); }
+        .social-item img { width: 56px; height: 56px; margin-bottom: 8px; border-radius: 14px; background: #f8fafc; padding: 10px; object-fit: contain; border: 1px solid #e2e8f0; }
+        .close-btn { background: var(--primary); color: white; border: none; padding: 14px; border-radius: 12px; margin-top: 24px; cursor: pointer; font-weight: 800; width: 100%; font-size: 15px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .section { padding: 60px 5%; }
+            .nav-links { display: none; }
+            .legal-section { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="brand">
+        <img src="icon.png" alt="Logo">
+        <h2>MS Student Library</h2>
+    </a>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="https://play.google.com/store/apps/details?id=com.mukeshsaw.msstudentlibrary&pcampaignid=web_share" target="_blank">Download</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Smart Learning. <br>Seamlessly Synced.</h1>
+    <p>The ultimate professional companion for students. Organize your materials, master competitive exams, and access your library wirelessly from any PC.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.mukeshsaw.msstudentlibrary&pcampaignid=web_share" class="btn-download" target="_blank">Download for Android</a>
+</header>
+
+<section id="features" class="section">
+    <div class="section-title">
+        <h2>Premium App Functionality</h2>
+        <p>Advanced tools tailored for your academic success.</p>
+    </div>
+    <div class="feature-grid">
+        <div class="card">
+            <h3>Recursive Cloud Sync</h3>
+            <p>Your library structure is preserved exactly as it is. Automated backup to Google Drive with multi-account support and recursive folder mirroring.</p>
+        </div>
+        <div class="card">
+            <h3>Wireless Web Management</h3>
+            <p>Turn your phone into a local server. Access, upload, and manage your entire library from your PC browser wirelessly over your local network.</p>
+        </div>
+        <div class="card">
+            <h3>Pro PDF Engine</h3>
+            <p>A distraction-free reading experience for heavy study materials with automatic page tracking, bookmarks, and high-speed rendering.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROFESSIONALLY STYLED PRIVACY POLICY SECTION -->
+<section id="privacy" class="section">
+    <div class="legal-section">
+        <div class="legal-header">
+            <span>Data Safety & Transparency</span>
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated: August 26, 2026</strong></p>
+        </div>
+
+        <div class="legal-item">
+            <p>We respect your privacy. MS Student Library uses Google Drive API solely to backup and sync your personal study documents.</p>
+        </div>
+
+        <div class="legal-item">
+            <h3>Data Collection</h3>
+            <p>The app only accesses files that it creates or that you specifically select. We do not see your private photos, emails, or other Drive data.</p>
+        </div>
+
+        <div class="legal-item">
+            <h3>Data Usage</h3>
+            <p>We do not store your data on our own servers. All backups are stored securely in your own Google account, giving you full ownership and control.</p>
+        </div>
+
+        <div class="legal-item" style="border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
+            <p style="font-size: 0.9rem;">By using MS Student Library, you agree to these privacy practices. You can disconnect your account at any time in the app settings.</p>
+        </div>
+    </div>
+</section>
+
+<footer style="padding: 40px 10%; text-align: center; background: #eee;">
+    <p>&copy; 2026 MS Student Library. Developed by Mukesh Saw.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.mukeshsaw.msstudentlibrary&pcampaignid=web_share" style="color: var(--primary); font-weight: 700; text-decoration: none;">Install from Google Play Store</a>
+</footer>
+
+<!-- STICKY FOOTER (Exact Web Server Design) -->
+<div class="sticky-footer" onclick="openSocial()">
+    <div class="footer-brand">
+        <img src="icon.png" class="footer-img">
+        <div class="footer-text">App By Mukesh</div>
+    </div>
+</div>
+
+<!-- SOCIAL MODAL (Exact Web Server Design) -->
+<div id="socialModal" class="modal" onclick="closeSocial(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h3 style="margin-top: 0; color: var(--primary); font-weight: 800; font-size: 20px;">Connect with Mukesh</h3>
+        <div class="social-grid">
+            <a href="https://whatsapp.com/channel/0029Va8zuwILCoX7PJQRD71K" class="social-item"><img src="whatsapp.png">WA</a>
+            <a href="https://t.me/Dostified" class="social-item"><img src="telegram.png">TG</a>
+            <a href="https://www.instagram.com/Dostified" class="social-item"><img src="instagram.png">IG</a>
+            <a href="https://www.facebook.com/Dostified" class="social-item"><img src="facebook.png">FB</a>
+            <a href="https://twitter.com/dostified" class="social-item"><img src="twitter.png">X</a>
+            <a href="https://youtube.com/@Dostified" class="social-item"><img src="youtube.png">YT</a>
+        </div>
+        <button class="close-btn" onclick="closeSocial()">CLOSE</button>
+    </div>
+</div>
+
+<script>
+    function openSocial() { document.getElementById('socialModal').style.display = 'flex'; }
+    function closeSocial(e) { document.getElementById('socialModal').style.display = 'none'; }
+</script>
+
 </body>
 </html>
