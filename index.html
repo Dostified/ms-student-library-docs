@@ -168,4 +168,42 @@
     </div>
     <div class="card">
         <h3>Exam Preparation</h3>
-        <p>Master your subjects with interactive tools for Math, English, Reasoning, and Puzzles.</
+        <p>Master your subjects with interactive tools for Math, English, Reasoning, and Puzzles.</p>
+    </div>
+</section>
+
+<!-- STICKY FOOTER (Exact Web Server Design) -->
+<div class="sticky-footer" onclick="openSocial()">
+    <div class="footer-brand">
+        <img src="icon.png" class="footer-img">
+        <div class="footer-text">App By Mukesh</div>
+    </div>
+</div>
+
+<!-- SOCIAL MODAL (Exact Web Server Design) -->
+<div id="socialModal" class="modal" onclick="closeSocial(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h3 style="margin-top: 0; color: var(--primary-color); font-weight: 800; font-size: 20px;">Connect with Mukesh</h3>
+        <div class="social-grid">
+            <a href="https://whatsapp.com/channel/0029Va8zuwILCoX7PJQRD71K" class="social-item"><img src="whatsapp.png">WhatsApp</a>
+            <a href="https://t.me/Dostified" class="social-item"><img src="telegram.png">Telegram</a>
+            <a href="https://www.instagram.com/Dostified" class="social-item"><img src="instagram.png">Instagram</a>
+            <a href="https://www.facebook.com/Dostified" class="social-item"><img src="facebook.png">Facebook</a>
+            <a href="https://twitter.com/dostified" class="social-item"><img src="twitter.png">Twitter</a>
+            <a href="https://youtube.com/@Dostified" class="social-item"><img src="youtube.png">YouTube</a>
+        </div>
+        <button class="close-btn" onclick="closeSocial()">CLOSE</button>
+    </div>
+</div>
+
+<script>
+    function openSocial() {
+        document.getElementById('socialModal').style.display = 'flex';
+    }
+    function closeSocial(e) {
+        document.getElementById('socialModal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
