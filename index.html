@@ -4,95 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="X3o8y6ejTU1C_jHdP82T8as90JbO68iI5k_Y_xQ616A" />
-    <title>MS Student Library - Official Homepage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>MS Student Library - Official App Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f7f6;
-            --text-color: #1e293b;
-            --card-bg: #ffffff;
-            --header-bg: #6200EE;
-            --primary-color: #6200EE;
-            --border-color: #e2e8f0;
-            --secondary-text: #94a3b8;
-            --modal-overlay: rgba(0,0,0,0.5);
+            --primary: #6200EE;
+            --bg-color: #F8F9FA;
+            --text-main: #1C1B1F;
+            --text-sec: #49454F;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
             padding-bottom: 90px; /* Space for sticky footer */
         }
 
         /* Navigation */
         nav {
-            background: var(--header-bg);
-            padding: 15px 8%;
+            background: #fff;
+            padding: 15px 10%;
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            justify-content: space-between;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
         }
 
-        .nav-content { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; }
-        .nav-content img { width: 40px; height: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); }
-        .nav-content h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--primary); }
+        .brand img { width: 42px; height: 42px; border-radius: 10px; }
+        .brand h2 { margin: 0; font-size: 20px; font-weight: 800; }
+
+        .nav-links a { text-decoration: none; color: var(--text-sec); margin-left: 25px; font-weight: 600; font-size: 14px; transition: 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
 
         /* Hero Section */
         .hero {
-            padding: 80px 8%;
+            padding: 100px 10% 80px;
             text-align: center;
-            background: linear-gradient(180deg, #EADDFF 0%, var(--bg-color) 100%);
+            background: linear-gradient(135deg, #EADDFF 0%, #fff 100%);
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: #21005D; font-weight: 800; }
-        .hero p { font-size: 1.2rem; max-width: 750px; margin: 0 auto 40px; color: #49454F; font-weight: 500; }
+        .hero h1 { font-size: 3.5rem; margin: 0 0 20px; color: #21005D; font-weight: 800; letter-spacing: -1px; }
+        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 40px; color: var(--text-sec); font-weight: 500; }
 
-        .btn-main {
-            background: var(--primary-color);
+        .btn-download {
+            background: var(--primary);
             color: white;
-            padding: 16px 40px;
+            padding: 18px 45px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(98, 0, 238, 0.3);
-            transition: 0.3s;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(98, 0, 238, 0.3);
             display: inline-block;
-        }
-
-        /* Features */
-        .features { padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        
-        .card {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
             transition: 0.3s;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
+        .btn-download:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(98, 0, 238, 0.4); }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
-        .card h3 { color: var(--primary-color); margin-top: 0; font-weight: 800; }
+        /* Detailed Feature Sections */
+        .section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 0; }
+        .section-title p { color: var(--text-sec); font-size: 1.1rem; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 40px; border-radius: 28px; box-shadow: var(--card-shadow); border: 1px solid #eee; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card h3 { font-size: 1.5rem; margin-top: 0; color: var(--primary); }
+        .card ul { padding-left: 20px; color: var(--text-sec); }
+        .card li { margin-bottom: 10px; }
+
+        /* Privacy & Transparency */
+        .transparency { background: #fff; border-radius: 40px; padding: 60px; text-align: center; border: 2px solid #EADDFF; }
+        .transparency h2 { color: #21005D; font-weight: 800; }
+        .transparency p { max-width: 850px; margin: 0 auto 30px; font-size: 1.1rem; }
+
+        /* Footer Navigation for Google */
+        .footer-nav { padding: 40px 10%; text-align: center; background: #f1f1f1; border-top: 1px solid #ddd; }
+        .footer-nav a { margin: 0 15px; text-decoration: none; color: var(--text-sec); font-weight: 600; font-size: 0.9rem; }
 
         /* EXACT WEB SERVER STICKY FOOTER */
         .sticky-footer { 
             position: fixed; bottom: 0; left: 0; right: 0; height: 70px; 
-            background: var(--header-bg); backdrop-filter: blur(10px); 
+            background: var(--primary); backdrop-filter: blur(10px); 
             border-top: 1px solid rgba(255,255,255,0.1); 
             display: flex; align-items: center; justify-content: center; 
             z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); 
             cursor: pointer; color: white; transition: 0.3s;
         }
-        
-        .sticky-footer:active { transform: scale(0.98); }
-
         .footer-brand { display: flex; align-items: center; gap: 12px; }
         .footer-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); }
         .footer-text { font-size: 15px; font-weight: 800; letter-spacing: 0.5px; }
@@ -100,82 +106,155 @@
         /* EXACT WEB SERVER MODAL */
         .modal { 
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
-            width: 100%; height: 100%; background: var(--modal-overlay); 
+            width: 100%; height: 100%; background: rgba(0,0,0,0.5); 
             backdrop-filter: blur(8px); justify-content: center; align-items: center;
         }
-
         .modal-content { 
-            background: var(--card-bg); padding: 32px; border: 1px solid var(--border-color); 
-            width: 90%; max-width: 450px; border-radius: 24px; color: var(--text-color); 
+            background: white; padding: 32px; border: 1px solid #eee; 
+            width: 90%; max-width: 450px; border-radius: 24px; color: var(--text-main); 
             text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
         }
-
         .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
-        
         .social-item { 
             display: flex; flex-direction: column; align-items: center; 
-            text-decoration: none; color: var(--text-color); font-size: 11px; 
+            text-decoration: none; color: var(--text-main); font-size: 11px; 
             font-weight: 600; transition: 0.3s; 
         }
-
-        .social-item:hover { transform: translateY(-5px); color: var(--primary-color); }
-        
+        .social-item:hover { transform: translateY(-5px); color: var(--primary); }
         .social-item img { 
             width: 56px; height: 56px; margin-bottom: 8px; border-radius: 14px; 
-            background: #f8fafc; padding: 10px; object-fit: contain; 
-            border: 1px solid #e2e8f0; 
+            background: #f8fafc; padding: 10px; object-fit: contain; border: 1px solid #e2e8f0; 
         }
-
         .close-btn { 
-            background: var(--primary-color); color: white !important; border: none; 
+            background: var(--primary); color: white; border: none; 
             padding: 14px; border-radius: 12px; margin-top: 24px; cursor: pointer; 
             font-weight: 800; width: 100%; font-size: 15px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .section { padding: 60px 5%; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="/" class="nav-content">
-        <img src="icon.png" alt="App Icon">
-        <h1>MS Student Library</h1>
+    <a href="#" class="brand">
+        <img src="icon.png" alt="MS Student Library">
+        <h2>MS Student Library</h2>
     </a>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#study">Study Tools</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://play.google.com/store/apps/details?id=com.mukeshsaw.msstudentlibrary" target="_blank">Get App</a>
+    </div>
 </nav>
 
-<section class="hero">
-    <h1>Your Library, Reimagined.</h1>
-    <p>The ultimate professional companion for students. Organize your studies, sync to the cloud, and access everything from any device.</p>
-    <a href="#" class="btn-main">Download App Now</a>
+<header class="hero">
+    <h1>Smart Learning. <br>Seamlessly Synced.</h1>
+    <p>Experience the most powerful student companion on Android. Organize your documents, master competitive exams, and access your library from any device.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.mukeshsaw.msstudentlibrary" class="btn-download" target="_blank">Download for Android</a>
+</header>
+
+<section id="features" class="section">
+    <div class="section-title">
+        <h2>Built for the Modern Student</h2>
+        <p>A professional toolkit designed for peak productivity.</p>
+    </div>
+    <div class="feature-grid">
+        <div class="card">
+            <h3>Recursive Cloud Sync</h3>
+            <p>Your library structure is preserved exactly as it is. Automated backup to Google Drive with multi-account support.</p>
+            <ul>
+                <li>Recursive folder mirroring</li>
+                <li>Instant manual backup & restore</li>
+                <li>Detailed restore history with timestamps</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Wireless Web Management</h3>
+            <p>Turn your phone into a local server. Access, upload, and manage your entire library from your PC browser wirelessly.</p>
+            <ul>
+                <li>Secure Local IP Connection</li>
+                <li>Desktop-to-Mobile file transfers</li>
+                <li>Dynamic theme synchronization</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Pro PDF Engine</h3>
+            <p>A distraction-free reading experience for heavy study materials and textbooks.</p>
+            <ul>
+                <li>Automatic page tracking</li>
+                <li>Smart Bookmarks & Favorites</li>
+                <li>High-speed document search</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section class="features">
-    <div class="card">
-        <h3>Cloud Synchronization</h3>
-        <p>Your library is safe with us. Automated Google Drive backup with full folder structure support.</p>
+<section id="study" class="section" style="background: #fff; border-radius: 60px 60px 0 0;">
+    <div class="section-title">
+        <h2>Comprehensive Study Tools</h2>
+        <p>Interactive practice modules for competitive excellence.</p>
     </div>
-    <div class="card">
-        <h3>Local Web Server</h3>
-        <p>Access and manage your documents wirelessly from your PC using our built-in web management portal.</p>
-    </div>
-    <div class="card">
-        <h3>Smart PDF Reader</h3>
-        <p>Advanced reading tools including automatic page tracking, bookmarks, and fast-render technology.</p>
-    </div>
-    <div class="card">
-        <h3>Exam Preparation</h3>
-        <p>Master your subjects with interactive tools for Math, English, Reasoning, and Puzzles.</p>
+    <div class="feature-grid">
+        <div class="card" style="background: #F3E5F5;">
+            <h3>Reasoning & Puzzles</h3>
+            <p>Master complex logic with interactive seating arrangements and floor puzzles.</p>
+            <ul>
+                <li>Circular & Linear Seating</li>
+                <li>Parallel Row & Floor Arrangements</li>
+                <li>Syllogism & Machine Input</li>
+            </ul>
+        </div>
+        <div class="card" style="background: #E8EAF6;">
+            <h3>Speed Math & DI</h3>
+            <p>Sharpen your calculation skills and data interpretation techniques.</p>
+            <ul>
+                <li>Simplification & Approximation</li>
+                <li>Pie Charts, Table DI, & Caselets</li>
+                <li>Missing & Wrong Number Series</li>
+            </ul>
+        </div>
+        <div class="card" style="background: #E0F2F1;">
+            <h3>English Proficiency</h3>
+            <p>Improve your vocabulary and grammar with targeted practice sessions.</p>
+            <ul>
+                <li>Reading Comprehension</li>
+                <li>Cloze Test & Para Jumbles</li>
+                <li>Error Spotting & Word Swaps</li>
+            </ul>
+        </div>
     </div>
 </section>
+
+<section id="privacy" class="section">
+    <div class="transparency">
+        <h2>Data Safety & Transparency</h2>
+        <p>MS Student Library creates a dedicated folder in your personal Google Drive named <strong>"MS Student Library"</strong>. This space is used exclusively for your personal backups. We do not access your private files, and your data is never stored on our servers.</p>
+        <p>You have full control over your accounts and data. You can switch or remove connected accounts instantly within the app settings.</p>
+        <div style="margin-top: 20px;">
+            <a href="/privacy-policy" style="color: var(--primary); font-weight: 700; text-decoration: none; margin: 0 15px;">Privacy Policy</a>
+            <a href="/terms" style="color: var(--primary); font-weight: 700; text-decoration: none; margin: 0 15px;">Terms of Service</a>
+        </div>
+    </div>
+</section>
+
+<div class="footer-nav">
+    <p>&copy; 2026 MS Student Library. All rights reserved.</p>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms">Terms & Conditions</a>
+    <a href="/contact">Support</a>
+    <p style="font-size: 0.8rem; color: #888; margin-top: 20px;">Developed by Mukesh Saw. <br>Designed to empower students through technology.</p>
+</div>
 
 <!-- STICKY FOOTER (Exact Web Server Design) -->
 <div class="sticky-footer" onclick="openSocial()">
     <div class="footer-brand">
-        <img src="icon.png" class="footer-img">
+        <img src="icon.png" class="footer-img" alt="Developer Icon">
         <div class="footer-text">App By Mukesh</div>
     </div>
 </div>
@@ -183,26 +262,22 @@
 <!-- SOCIAL MODAL (Exact Web Server Design) -->
 <div id="socialModal" class="modal" onclick="closeSocial(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <h3 style="margin-top: 0; color: var(--primary-color); font-weight: 800; font-size: 20px;">Connect with Mukesh</h3>
+        <h3 style="margin-top: 0; color: var(--primary); font-weight: 800; font-size: 20px;">Connect with Mukesh</h3>
         <div class="social-grid">
-            <a href="https://whatsapp.com/channel/0029Va8zuwILCoX7PJQRD71K" class="social-item"><img src="whatsapp.png">WhatsApp</a>
-            <a href="https://t.me/Dostified" class="social-item"><img src="telegram.png">Telegram</a>
-            <a href="https://www.instagram.com/Dostified" class="social-item"><img src="instagram.png">Instagram</a>
-            <a href="https://www.facebook.com/Dostified" class="social-item"><img src="facebook.png">Facebook</a>
-            <a href="https://twitter.com/dostified" class="social-item"><img src="twitter.png">Twitter</a>
-            <a href="https://youtube.com/@Dostified" class="social-item"><img src="youtube.png">YouTube</a>
+            <a href="https://whatsapp.com/channel/0029Va8zuwILCoX7PJQRD71K" class="social-item"><img src="whatsapp.png" alt="WhatsApp">WhatsApp</a>
+            <a href="https://t.me/Dostified" class="social-item"><img src="telegram.png" alt="Telegram">Telegram</a>
+            <a href="https://www.instagram.com/Dostified" class="social-item"><img src="instagram.png" alt="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/Dostified" class="social-item"><img src="facebook.png" alt="Facebook">Facebook</a>
+            <a href="https://twitter.com/dostified" class="social-item"><img src="twitter.png" alt="Twitter">Twitter</a>
+            <a href="https://youtube.com/@Dostified" class="social-item"><img src="youtube.png" alt="YouTube">YouTube</a>
         </div>
         <button class="close-btn" onclick="closeSocial()">CLOSE</button>
     </div>
 </div>
 
 <script>
-    function openSocial() {
-        document.getElementById('socialModal').style.display = 'flex';
-    }
-    function closeSocial(e) {
-        document.getElementById('socialModal').style.display = 'none';
-    }
+    function openSocial() { document.getElementById('socialModal').style.display = 'flex'; }
+    function closeSocial(e) { document.getElementById('socialModal').style.display = 'none'; }
 </script>
 
 </body>
