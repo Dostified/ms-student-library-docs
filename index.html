@@ -4,245 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="X3o8y6ejTU1C_jHdP82T8as90JbO68iI5k_Y_xQ616A" />
-    <title>MS Student Library - Your Professional Study Companion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>MS Student Library - Official Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6200EE;
-            --accent: #03DAC5;
-            --text-main: #212121;
-            --text-secondary: #757575;
-            --bg-light: #F5F5F5;
+            --bg-color: #f4f7f6;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --header-bg: #6200EE;
+            --primary-color: #6200EE;
+            --border-color: #e2e8f0;
+            --secondary-text: #94a3b8;
+            --modal-overlay: rgba(0,0,0,0.5);
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            background-color: #fff;
-            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 90px; /* Space for sticky footer */
         }
 
-        /* Header */
-        header {
+        /* Navigation */
+        nav {
+            background: var(--header-bg);
+            padding: 15px 8%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 15px 10%;
-            background: #fff;
+            justify-content: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-area img {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-        }
-
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--primary);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 25px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
+        .nav-content { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; }
+        .nav-content img { width: 40px; height: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); }
+        .nav-content h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
 
         /* Hero Section */
         .hero {
+            padding: 80px 8%;
             text-align: center;
-            padding: 100px 10%;
-            background: linear-gradient(135deg, #f3e5f5 0%, #ffffff 100%);
+            background: linear-gradient(180deg, #EADDFF 0%, var(--bg-color) 100%);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: #21005D; font-weight: 800; }
+        .hero p { font-size: 1.2rem; max-width: 750px; margin: 0 auto 40px; color: #49454F; font-weight: 500; }
 
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-
-        .btn {
-            background: var(--primary);
-            color: #fff;
-            padding: 15px 40px;
-            border-radius: 30px;
+        .btn-main {
+            background: var(--primary-color);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 100px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
+            box-shadow: 0 4px 12px rgba(98, 0, 238, 0.3);
+            transition: 0.3s;
             display: inline-block;
         }
 
-        /* Features Section */
-        .section-padding { padding: 80px 10%; }
+        /* Features */
+        .features { padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
         
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
         .card {
-            padding: 40px;
-            background: #fff;
+            background: var(--card-bg);
+            padding: 35px;
             border-radius: 20px;
-            border: 1px solid #eee;
+            border: 1px solid var(--border-color);
             transition: 0.3s;
-            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .card h3 { color: var(--primary-color); margin-top: 0; font-weight: 800; }
+
+        /* EXACT WEB SERVER STICKY FOOTER */
+        .sticky-footer { 
+            position: fixed; bottom: 0; left: 0; right: 0; height: 70px; 
+            background: var(--header-bg); backdrop-filter: blur(10px); 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            display: flex; align-items: center; justify-content: center; 
+            z-index: 1000; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); 
+            cursor: pointer; color: white; transition: 0.3s;
+        }
+        
+        .sticky-footer:active { transform: scale(0.98); }
+
+        .footer-brand { display: flex; align-items: center; gap: 12px; }
+        .footer-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); }
+        .footer-text { font-size: 15px; font-weight: 800; letter-spacing: 0.5px; }
+
+        /* EXACT WEB SERVER MODAL */
+        .modal { 
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; 
+            width: 100%; height: 100%; background: var(--modal-overlay); 
+            backdrop-filter: blur(8px); justify-content: center; align-items: center;
         }
 
-        .card h3 { color: var(--primary); margin-bottom: 15px; }
-
-        /* Privacy Section */
-        .privacy-box {
-            background: var(--bg-light);
-            padding: 60px 10%;
-            text-align: center;
-            border-radius: 30px;
+        .modal-content { 
+            background: var(--card-bg); padding: 32px; border: 1px solid var(--border-color); 
+            width: 90%; max-width: 450px; border-radius: 24px; color: var(--text-color); 
+            text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
         }
 
-        .privacy-box p {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
+        .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+        
+        .social-item { 
+            display: flex; flex-direction: column; align-items: center; 
+            text-decoration: none; color: var(--text-color); font-size: 11px; 
+            font-weight: 600; transition: 0.3s; 
         }
 
-        /* Footer */
-        footer {
-            background: #121212;
-            color: #fff;
-            padding: 60px 10% 30px;
-            text-align: center;
+        .social-item:hover { transform: translateY(-5px); color: var(--primary-color); }
+        
+        .social-item img { 
+            width: 56px; height: 56px; margin-bottom: 8px; border-radius: 14px; 
+            background: #f8fafc; padding: 10px; object-fit: contain; 
+            border: 1px solid #e2e8f0; 
         }
 
-        .social-icons {
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .social-icons a {
-            color: #eee;
-            text-decoration: none;
-            padding: 8px 15px;
-            border: 1px solid #444;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .social-icons a:hover {
-            background: var(--primary);
-            border-color: var(--primary);
+        .close-btn { 
+            background: var(--primary-color); color: white !important; border: none; 
+            padding: 14px; border-radius: 12px; margin-top: 24px; cursor: pointer; 
+            font-weight: 800; width: 100%; font-size: 15px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { flex-direction: column; gap: 20px; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-area">
-        <img src="https://via.placeholder.com/100/6200EE/ffffff?text=MS" alt="App Icon">
-        <div class="logo-text">MS Student Library</div>
-    </div>
-    <nav>
-        <a href="#features">Features</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+<nav>
+    <a href="/" class="nav-content">
+        <img src="icon.png" alt="App Icon">
+        <h1>MS Student Library</h1>
+    </a>
+</nav>
 
 <section class="hero">
-    <h1>Smart Library. Smart Learning.</h1>
-    <p>The ultimate professional companion for students to organize, read, and synchronize study materials seamlessly across all devices.</p>
-    <a href="#" class="btn">Download for Android</a>
+    <h1>Your Library, Reimagined.</h1>
+    <p>The ultimate professional companion for students. Organize your studies, sync to the cloud, and access everything from any device.</p>
+    <a href="#" class="btn-main">Download App Now</a>
 </section>
 
-<section id="features" class="section-padding">
-    <h2 class="section-title">App Functionality</h2>
-    <div class="features-grid">
-        <div class="card">
-            <h3>Cloud Sync & Backup</h3>
-            <p>Automatic and manual backup to your own Google Drive. Preserve your entire library structure and documents safely in the cloud.</p>
-        </div>
-        <div class="card">
-            <h3>Advanced PDF Reader</h3>
-            <p>A high-performance reader that remembers your progress, bookmarks your pages, and handles large textbooks with ease.</p>
-        </div>
-        <div class="card">
-            <h3>PC Integration</h3>
-            <p>Access your mobile documents on your PC via a secure local web server. Upload and manage files directly from your computer browser.</p>
-        </div>
-        <div class="card">
-            <h3>Study Quizzes</h3>
-            <p>Built-in interactive practice sessions for English, Reasoning, and Math to help you master competitive exams.</p>
-        </div>
+<section class="features">
+    <div class="card">
+        <h3>Cloud Synchronization</h3>
+        <p>Your library is safe with us. Automated Google Drive backup with full folder structure support.</p>
     </div>
-</section>
-
-<section id="privacy" class="section-padding">
-    <div class="privacy-box">
-        <h2>Transparency & Data Safety</h2>
-        <p>MS Student Library creates a dedicated folder in your Google Drive named "MS Student Library" to store your backups. We do not access your private files or share your personal data with any third party.</p>
-        <p>Your data belongs to you. You can manage, switch, or remove your connected accounts at any time directly from the app settings.</p>
-        <a href="/privacy-policy" style="color: var(--primary); font-weight: 700; text-decoration: none;">Read our Full Privacy Policy</a>
+    <div class="card">
+        <h3>Local Web Server</h3>
+        <p>Access and manage your documents wirelessly from your PC using our built-in web management portal.</p>
     </div>
-</section>
-
-<footer id="contact">
-    <p>Developed with passion by <strong>Mukesh Saw</strong></p>
-    <div class="social-icons">
-        <a href="https://whatsapp.com/channel/0029Va8zuwILCoX7PJQRD71K">WhatsApp</a>
-        <a href="https://t.me/Dostified">Telegram</a>
-        <a href="https://www.instagram.com/Dostified">Instagram</a>
-        <a href="https://www.facebook.com/Dostified">Facebook</a>
-        <a href="https://twitter.com/dostified">Twitter</a>
-        <a href="https://youtube.com/@Dostified">YouTube</a>
+    <div class="card">
+        <h3>Smart PDF Reader</h3>
+        <p>Advanced reading tools including automatic page tracking, bookmarks, and fast-render technology.</p>
     </div>
-    <p style="color: #777; font-size: 0.9rem;">&copy; 2026 MS Student Library. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+    <div class="card">
+        <h3>Exam Preparation</h3>
+        <p>Master your subjects with interactive tools for Math, English, Reasoning, and Puzzles.</
